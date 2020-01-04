@@ -30,11 +30,18 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_UP){
 
-                    textView.setText("YUKARI");
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("hareket");
+
+                    myRef.setValue("d");
                     return true;
                 }
                 else{
-                    textView.setText("YUKARI DEĞİL");
+                    // Write a message to the database
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("hareket");
+
+                    myRef.setValue("i");
                 }
                 return false;
             }
@@ -45,11 +52,18 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_UP){
 
-                    textView.setText("SAG");
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("hareket");
+
+                    myRef.setValue("d");
                     return true;
                 }
                 else{
-                    textView.setText("SAG DEĞİL");
+                    // Write a message to the database
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("hareket");
+
+                    myRef.setValue("sag");
                 }
                 return false;
             }
@@ -60,11 +74,18 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_UP){
 
-                    textView.setText("SOL");
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("hareket");
+
+                    myRef.setValue("d");
                     return true;
                 }
                 else{
-                    textView.setText("SOL DEĞİL");
+                    // Write a message to the database
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("hareket");
+
+                    myRef.setValue("sol");
                 }
                 return false;
             }
@@ -75,11 +96,18 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_UP){
 
-                    textView.setText("FAR");
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("hareket");
+
+                    myRef.setValue("d");
                     return true;
                 }
                 else{
-                    textView.setText("FAR DEĞİL");
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("hareket");
+
+                    myRef.setValue("far");
                 }
                 return false;
             }
@@ -90,11 +118,18 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 if(event.getAction() == MotionEvent.ACTION_UP){
 
-                    textView.setText("OTO");
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("hareket");
+
+                    myRef.setValue("d");
                     return true;
                 }
                 else{
-                    textView.setText("OTO DEĞİL");
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("hareket");
+
+                    myRef.setValue("o");
                 }
                 return false;
             }
@@ -113,19 +148,15 @@ public class MainActivity extends AppCompatActivity {
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+        DatabaseReference myRef = database.getReference("sensor");
 
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
 
                 String value = dataSnapshot.getValue(String.class);
                 textView.setText(value);
-
-
             }
 
             @Override
