@@ -1,25 +1,81 @@
-int datafromUser=0;
+//Cezeri Robotics 2020 Tubitak
+//Mavi Bekçi
+
+int kul_veri = 0;
+const int in1 = 11;
+const int in2 = 10;
+const int in3 = 9;
+const int in4 = 8;
+
 void setup() {
-  // put your setup code here, to run once:
-  pinMode( 8 , OUTPUT );
-  Serial.begin(9600);
+  pinMode(in1, OUTPUT);
+  pinMode(in2, OUTPUT);
+  pinMode(in3, OUTPUT);
+  pinMode(in4, OUTPUT);
+
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  if(Serial.available() > 0)
+  if (Serial.available() > 0)
   {
-    datafromUser=Serial.read();
+    kul_veri = Serial.read();
   }
 
-  if(datafromUser == 97)
+  if (kul_veri == 100) // Python ile gönderdiğimiz veri 'd'ye eşitse:
   {
-    digitalWrite( 8 , HIGH );
-    
+    dur();
+
   }
-  else
+
+  else if (kul_veri == 105) // Python ile gönderdiğimiz veri 'i'ye eşitse:
   {
-    digitalWrite( 8, LOW);
+    ileri();
   }
+
+  else if (kul_veri == 103)// Python ile gönderdiğimiz veri 'g'ye eşitse:
+  {
+    sag();
+  }
+
+  else if (kul_veri == 108)// Python ile gönderdiğimiz veri 'l'ye eşitse:
+  {
+    sol();
+  }
+
+  else if (kul_veri == 111)// Python ile gönderdiğimiz veri 'o'ya eşitse:
+  {
+    oto();
+  }
+
+  else if (kul_veri == 102)// Python ile gönderdiğimiz veri 'f'ye eşitse:
+  {
+    far();
+  }
+
+}
+
+void dur(){
+ 
+}
+
+void ileri(){
+  
+}
+
+void sag(){
+
+  
+}
+
+void sol(){
+
+ 
+}
+
+void oto(){
+
+  
+}
+void far(){
   
 }
