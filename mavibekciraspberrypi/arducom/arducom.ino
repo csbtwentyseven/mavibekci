@@ -1,6 +1,5 @@
 //Cezeri Robotics 2020 Tubitak
-//Mavi Bekçi
-
+//Mavi Bekçi©
 int kul_veri = 100;
 const int in1 = 11;
 const int in2 = 10;
@@ -28,6 +27,8 @@ void setup() {
 }
 
 void loop() {
+  sensorGonder();
+
   if (Serial.available() > 0)
   {
     kul_veri = Serial.read();
@@ -65,7 +66,14 @@ void loop() {
   }
 
 }
-
+void sensorGonder() {
+  if (analogRead(A0 < 350) { // 350'nin altında bir değer okunursa su güvenli seviyededir.Suyun temiz olduğunu belirten 26 şifresini gönderebiliriz.
+  Serial.println(26);
+  }
+  else {
+    Serial.println(13); // 350'nin altında değilse suda kirlilik mevcuttur.Kirliliği belirten 13 şifresini gönderebiliriz.
+  }
+}
 void dur() {
   digitalWrite(in1, LOW);
   digitalWrite(in2, LOW);
